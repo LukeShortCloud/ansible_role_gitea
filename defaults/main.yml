@@ -1,0 +1,6 @@
+---
+gitea_version: 1.5.0-rc1
+gitea_arch: amd64
+gitea_user: gitea
+gitea_database_backend: sqlite3
+gitea_cache_backend: memory

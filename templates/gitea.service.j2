@@ -1,0 +1,31 @@
+[Unit]
+Description=Gitea (Git with a cup of tea)
+After=syslog.target
+After=network.target
+{% if gitea_database_backend == "mysql" %}
+After=mysqld.service
+{% endif %}
+{% if gitea_database_backend == "postgresql" %}
+After=postgresql.service
+{% endif %}
+{% if gitea_cache_backend == "memcache" %}
+After=memcached.service
+{% endif %}
+{% if gitea_cache_backend == "redis" %}
+After=redis.service
+{% endif %}
+
+[Service]
+LimitMEMLOCK=infinity
+LimitNOFILE=65535
+RestartSec=2s
+Type=simple
+User={{ gitea_user }}
+Group={{ gitea_user }}
+WorkingDirectory=/var/lib/gitea/
+ExecStart=/usr/local/bin/gitea web -c /etc/gitea/app.ini
+Restart=always
+Environment=USER={{ gitea_user }} HOME=/home/{{ gitea_user }} GITEA_WORK_DIR=/var/lib/gitea
+
+[Install]
+WantedBy=multi-user.target
