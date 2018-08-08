@@ -1,0 +1,29 @@
+---
+galaxy_info:
+  author: Luke Short
+  description: Install the Gitea service on Linux.
+  issue_tracker_url: https://github.com/ekultails/ansible_role_gitea/issues
+  license: Apache
+  min_ansible_version: 2.6
+  platforms:
+    - name: ArchLinux
+      versions:
+        - all
+    - name: Debian
+      versions:
+        - all
+    - name: Fedora
+      versions:
+        - all
+    - name: opensuse
+      versions:
+        - all
+    - name: Ubuntu
+      versions:
+        - all
+  galaxy_tags:
+    - git
+    - gitea
+    - gogs
+
+dependencies: []
