@@ -1,4 +1,4 @@
-# ansible-role-gitea
+# ansible_role_gitea
 
 An Ansible role to install [Gitea](https://gitea.io/en-us/) on Linux.
 
@@ -31,7 +31,7 @@ None.
 ---
 - hosts: gitea_server
   roles:
-    - ansible-role-gitea
+    - ansible_role_gitea
 ```
 
 ## License
