@@ -1,0 +1,23 @@
+---
+dependency:
+  name: galaxy
+driver:
+  name: vagrant
+  provider:
+    name: virtualbox
+lint:
+  name: yamllint
+platforms:
+  - name: CentOS
+    box: centos/7
+  - name: Fedora
+    box: fedora/28-cloud-base
+provisioner:
+  name: ansible
+  lint:
+    name: ansible-lint
+scenario:
+  name: default
+verifier:
+  name: testinfra
+  enabled: false

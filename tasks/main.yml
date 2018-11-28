@@ -1,4 +1,9 @@
 ---
+- name: Install git
+  package:
+    name: git
+    state: present
+
 - name: Creating the Gitea user
   user:
     name: "{{ gitea_user }}"
@@ -44,5 +49,5 @@
 - name: Starting and enabling the service
   service:
     name: gitea
-    state: restarted
-    enabled: True
+    state: started
+    enabled: true

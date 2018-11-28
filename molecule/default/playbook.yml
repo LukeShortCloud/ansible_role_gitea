@@ -1,0 +1,12 @@
+---
+- name: Converge
+  hosts: all
+  become: true
+
+  roles:
+    - role: ansible_role_gitea
+
+  post_tasks:
+    - name: Verify if Gitea is up
+      uri:
+        url: http://127.0.0.1:3000
