@@ -1,6 +1,7 @@
 ---
 galaxy_info:
   author: Luke Short
+  company: ekultails
   description: Install the Gitea service on Linux.
   issue_tracker_url: https://github.com/ekultails/ansible_role_gitea/issues
   license: Apache
