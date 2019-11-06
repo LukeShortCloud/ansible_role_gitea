@@ -1,5 +1,5 @@
 ---
-gitea_version: 1.6.3
+gitea_version: 1.9.5
 gitea_arch: amd64
 gitea_user: gitea
 gitea_database_backend: sqlite3
