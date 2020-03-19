@@ -4,16 +4,22 @@
     name: git
     state: present
 
+- name: Ensure Gitea group exists
+  group:
+    name: "{{ gitea_user }}"
+    state: present
+
 - name: Creating the Gitea user
   user:
     name: "{{ gitea_user }}"
+    group: "{{ gitea_user }}"
     state: present
 
 - name: Downloading Gitea
   get_url:
     url: "https://dl.gitea.io/gitea/{{ gitea_version }}/gitea-{{ gitea_version }}-linux-{{ gitea_arch }}"
     dest: /usr/local/bin/gitea
-    mode: 0750
+    mode: 0770
     owner: "{{ gitea_user }}"
     group: "{{ gitea_user }}"
 
@@ -35,7 +41,7 @@
     path: /etc/gitea
     state: directory
     mode: 0770
-    owner: root
+    owner: "{{ gitea_user }}"
     group: "{{ gitea_user }}"
 
 - name: Creating the systemd service file
