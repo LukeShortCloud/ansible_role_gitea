@@ -19,7 +19,7 @@
   get_url:
     url: "https://dl.gitea.io/gitea/{{ gitea_version }}/gitea-{{ gitea_version }}-linux-{{ gitea_arch }}"
     dest: /usr/local/bin/gitea
-    mode: 0770
+    mode: 0750
     owner: "{{ gitea_user }}"
     group: "{{ gitea_user }}"
 
@@ -41,7 +41,7 @@
     path: /etc/gitea
     state: directory
     mode: 0770
-    owner: "{{ gitea_user }}"
+    owner: root
     group: "{{ gitea_user }}"
 
 - name: Creating the systemd service file
