@@ -4,9 +4,15 @@
     name: git
     state: present
 
+- name: Ensure Gitea group exists
+  group:
+    name: "{{ gitea_user }}"
+    state: present
+
 - name: Creating the Gitea user
   user:
     name: "{{ gitea_user }}"
+    group: "{{ gitea_user }}"
     state: present
 
 - name: Downloading Gitea
